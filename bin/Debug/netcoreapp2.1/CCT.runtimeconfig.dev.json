@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/home/vesi/.dotnet/store/|arch|/|tfm|",
+      "/home/vesi/.nuget/packages"
+    ]
+  }
+}
