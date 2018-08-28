@@ -30,3 +30,5 @@
 /home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/CCT.dll
 /home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/CCT.pdb
 /home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/CCT.csproj.CopyComplete
+/home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Views/Portal/Index.g.cshtml.cs
+/home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Views/Portal/Welcome.g.cshtml.cs
