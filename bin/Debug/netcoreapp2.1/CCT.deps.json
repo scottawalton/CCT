@@ -25,6 +25,7 @@
       "CCT/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.App": "2.1.3",
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.1.2",
           "Microsoft.NETCore.App": "2.1.0"
         },
         "runtime": {

@@ -2,10 +2,10 @@ using System;
 
 namespace CCT.Models
 {
-    public class Login
+    public class User
     {
-        public string Name { get; set; }
         public int Password { get; set; }
+        public string Username { get; set; }
         public string Email { get; set; }
     }
 }

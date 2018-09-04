@@ -18,9 +18,7 @@ namespace CCT.Controllers
 
         public IActionResult Welcome(string name, int numTimes = 1)
         {
-            ViewData["Message"] = "Hello " + name;
-            ViewData["NumTimes"] = numTimes;
-
+            // Redirect them to Members Index
             return View();
         }
     }
