@@ -10,8 +10,18 @@ namespace CCT.Controllers
 {
     public class HomeController : Controller
     {
+    
+        protected AppDBContext mContext;
+
+        public HomeController(AppDBContext context) 
+        {
+            mContext = context;
+        }
+
+
         public IActionResult Index()
         {
+            mContext.Database.EnsureCreated();
             return View();
         }
 
@@ -22,19 +32,6 @@ namespace CCT.Controllers
             return View();
         }
 
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

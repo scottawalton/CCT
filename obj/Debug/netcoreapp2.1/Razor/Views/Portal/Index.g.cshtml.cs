@@ -60,7 +60,7 @@ using CCT.Models;
             WriteLiteral("\n<h2>User Portal</h2>\n\n<p>Welcome to the Country Club Tower user portal.</p>\n<p>Please enter your credentials to proceed.</p>\n</br>\n<div>\n    ");
             EndContext();
             BeginContext(181, 209, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "503faae7266c4e0ca0468e145af40a9a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eba367a106a14cd29540b1d7b65eacd7", async() => {
                 BeginContext(187, 196, true);
                 WriteLiteral("\n    <p>Username:</p>\n    <input type=\"text\">\n    <p style=\"padding-top: 5px\">Password:</p>\n    <input type=\"text\">\n    <br>\n    <input type=\"submit\" style=\"margin-top: 20px\" value=\"Submit\">\n\n    ");
                 EndContext();

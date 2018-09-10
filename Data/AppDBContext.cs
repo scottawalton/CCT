@@ -6,21 +6,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System;
 
 
-namespace CCT.Data
+namespace CCT
 {
     public class AppDBContext : DbContext
     {
-        public AppDBContext(DbContextOptions<AppDBContext> options) : base (options)
-        {}
-        
-    }
-
-    public class User
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string userName { get; set; }
-        public string email { get; set; }
-        public int Id { get; set; }
+        // default Database constructor - expecting options
+        public AppDBContext(DbContextOptions<AppDBContext> options) : base(options)
+        {
+        }
+        public DbSet<User> Users { get; set; }
     }
 }
