@@ -33,16 +33,23 @@ namespace CCT
             });
 
 
-            // Connection string
+            // Adds AppDBContext into the ServiceCollection so we can later query it through the provider
             services.AddDbContext<AppDBContext>(options =>
-            options.UseSqlServer("Server=.;Database=CCT;User Id=SA;Password=countryclubrocks1!"));
+            // Pulls connection string from Configuration
+            options.UseSqlServer(Configuration.GetConnectionString("Default")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider serviceProvider)
         {
+
+            // Initializes the provider to be an instance of IServiceProvider
+            // (If changed here, please change type in IocContainer)
+            IocContainer.provider = serviceProvider;
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -53,7 +60,6 @@ namespace CCT
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
