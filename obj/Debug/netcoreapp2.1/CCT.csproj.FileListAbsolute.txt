@@ -32,3 +32,5 @@
 /home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/CCT.csproj.CopyComplete
 /home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Views/Portal/Index.g.cshtml.cs
 /home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Views/Portal/Welcome.g.cshtml.cs
+/home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Views/MembersArea/Index.g.cshtml.cs
+/home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Views/Portal/NewUser.g.cshtml.cs
