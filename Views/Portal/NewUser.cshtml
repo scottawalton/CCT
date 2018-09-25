@@ -1,21 +1,31 @@
 @{
     ViewData["Title"] = "Portal";
 }
-@model CCT.User
+@model CCT.Controllers.PortalController.userClaim
 
 <h2>User Portal</h2>
 
-<p>Welcome to the Country Club Tower user portal.</p>
-<p>PPlease fill out all of the fields.</p>
+<p>Welcome to the Country Club Tower new user registration page!</p>
+<p>Please fill out all of the fields and click 'Submit' when complete.</p>
 </br>
 <div>
     <form asp-controller="Portal" asp-action="CreateUser" method="post">
-    <p>Username:</p>
-    <input asp-for="UserName">
-    <p style="padding-top: 5px">Email</p>
+    <table>
+        <tr>
+            <th stype="font-family: times, serif">First Name</th>
+            <th>Last Name</th>
+        </tr>
+        <tr>
+            <td style="padding-right: 25px"><input asp-for="FirstName" style="width: 25vw"></td>
+            <td><input asp-for="LastName" style="width: 25vw"></td>
+        </tr>
+    </table>
+    <p style="padding-top: 5px">Email: </p>
     <input asp-for="Email">
     <br>
-    <input asp-for="password">
+    <p style="padding-top: 5px">Password: </p>
+    <input asp-for="password" type="password">
+    @*TODO: Implement red text that appears when requirements are not met*@
     <br>
     <input type="submit" style="margin-top: 20px" value="Submit">
     </form>
