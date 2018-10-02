@@ -21,6 +21,13 @@ namespace CCT.Controllers
             [DataType(DataType.Password)]
             public string password {get; set;}
         }
+
+        public class LogInModel
+        {
+            public string email {get; set;}
+            public string password {get; set;}
+        }
+
         #endregion
 
         #region Default Contstructor
@@ -35,6 +42,7 @@ namespace CCT.Controllers
         }
         #endregion
 
+        #region Sign In
         public IActionResult Index()
         {
             
@@ -48,34 +56,52 @@ namespace CCT.Controllers
 
             return View();
         }
+        #endregion
 
+        #region New User
+        /// <summary>
+        /// Attempts to create a new user and write it to the database using Usermanager
+        /// </summary>
+        /// <returns>Returns an IdentityResult</returns>
+        public async Task<IdentityResult> CreateUser(userClaim User)
+        {
+            User.UserName = User.Email;
+
+            // WIP -- Hashing pass with 265 SHA
+
+            IdentityResult result = await userManager.CreateAsync(User, User.password);
+
+            return result;
+        }
+
+        /// <summary>
+        /// Returns a View where the user is able to fill out a form to sign up for an account
+        /// </summary>
         public IActionResult NewUser()
         {
 
             var user = new userClaim();
-
             return View();
         }
 
+        /// <summary>
+        /// Attempts to create a new user and lets us know what happens.
+        /// </summary>
         [HttpPost]
-        public IActionResult UserCreationAttempted(userClaim User)
+        public IActionResult NewUser(userClaim User)
         {
-            
             var result = CreateUser(User);
 
-            return View(User);
+            // Redirects them to the Members area if successful; otherwise, reloads page and shows error
+            if (result.Result.Succeeded) {
+                signInManager.SignInAsync(User, true);
+                return View("../MembersArea/Index", User); 
+            }  
+            else {
+                ViewBag.errors = result.Result.Errors;
+                return View();
+            }
         }
-
-        public async Task<IdentityResult> CreateUser(userClaim User)
-        {
-            byte[] passInBytes = Encoding.UTF8.GetBytes(User.password);
-            SHA256Managed crypt = new SHA256Managed();
-            byte[] crypto = crypt.ComputeHash(passInBytes);
-
-            // WIP -- Hashing pass with 265 SHA
-            var result = await userManager.CreateAsync(User, User.password);
-
-            return result;
-        }
+        #endregion
     }
 }

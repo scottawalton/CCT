@@ -1,5 +1,7 @@
 @{
     ViewData["Title"] = "Welcome";
 }
+@model CCT.User
 
-<h2>Welcome to the Members Area. Here are the restricted documents:</h2>
+<h2>Welcome to the Members Area, @Context.User.Identity.Name . Here are the restricted documents:</h2>
+Context.User.

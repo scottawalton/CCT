@@ -9,7 +9,7 @@
 <p>Please fill out all of the fields and click 'Submit' when complete.</p>
 </br>
 <div>
-    <form asp-controller="Portal" asp-action="CreateUser" method="post">
+    <form asp-controller="Portal" asp-action="NewUser" method="post">
     <table>
         <tr>
             <th stype="font-family: times, serif">First Name</th>
@@ -27,6 +27,9 @@
     <input asp-for="password" type="password">
     @*TODO: Implement red text that appears when requirements are not met*@
     <br>
+
+    <p>@ViewBag.errors</p>
+
     <input type="submit" style="margin-top: 20px" value="Submit">
     </form>
 </div>
