@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Identity;
 
 namespace CCT
 {
+    // Makes entire area private
+    [Authorize]
     public class MembersAreaController : Controller
     {
         protected AppDBContext mContext;
@@ -20,8 +22,6 @@ namespace CCT
         }
 
 
-        // Private Area
-        [Authorize]
         public IActionResult Index()
         {
             mContext.Database.EnsureCreated();

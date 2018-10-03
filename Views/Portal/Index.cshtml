@@ -1,25 +1,25 @@
 @{
     ViewData["Title"] = "Portal";
 }
-@model CCT.User
+@model CCT.Controllers.PortalController.LogInModel
 
 <h2>User Portal</h2>
 
 <p>Welcome to the Country Club Tower user portal.</p>
 <p>Please enter your credentials to proceed.</p>
 </br>
+<p style="color: red; font-size: 20px">@ViewBag.errors</p>
 <div>
-    <form>
+
+    <form asp-controller="Portal" method="post">
     <p style="padding-top: 5px">Username:</p>
-    <input type="text">
-    <asp: TextBox id="userName" runat="server">
+    <input asp-for="email">
     <p style="padding-top: 5px">Password:</p>
-    <input type="text">
-    <asp: TextBox id="password" runat="server">
+    <input asp-for="password">
     <br>
     <input type="submit" style="margin-top: 20px" value="Submit">
-
     </form>
+
     <br><br>
     <h4> Have you registered yet? <a href="Portal/NewUser">Create an account now.</a></h4>
 </div>

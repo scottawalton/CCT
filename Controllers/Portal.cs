@@ -43,19 +43,44 @@ namespace CCT.Controllers
         #endregion
 
         #region Sign In
+
         public IActionResult Index()
         {
-            
-            // accept credentials
-
-            // verify
-
-            // create cookie
-
-            // redirect
-
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Index(LogInModel credentials)
+        {
+
+            SignOut();
+
+            var result = signInManager.PasswordSignInAsync(credentials.email, credentials.password, true, false);
+
+            if (result.Result.Succeeded) 
+            {
+                return RedirectToAction("Index", "MembersArea");
+            }
+            else
+            {
+                ViewBag.errors = "Log in attempt failed.";
+                return View();
+            }
+
+        }
+
+        #endregion
+
+        #region Sign Out
+        /// <summary>
+        /// Signs out user using Identity SigninManager
+        /// </summary>
+        /// <returns></returns>
+        public async void SignOut()
+        {
+            await signInManager.SignOutAsync();
+        }
+
         #endregion
 
         #region New User
@@ -90,12 +115,15 @@ namespace CCT.Controllers
         [HttpPost]
         public IActionResult NewUser(userClaim User)
         {
+
+            SignOut();
+
             var result = CreateUser(User);
 
             // Redirects them to the Members area if successful; otherwise, reloads page and shows error
             if (result.Result.Succeeded) {
                 signInManager.SignInAsync(User, true);
-                return View("../MembersArea/Index", User); 
+                return RedirectToAction("Index", "MembersArea");
             }  
             else {
                 ViewBag.errors = result.Result.Errors;
@@ -103,5 +131,6 @@ namespace CCT.Controllers
             }
         }
         #endregion
+
     }
 }
