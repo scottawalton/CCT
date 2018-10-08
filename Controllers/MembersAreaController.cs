@@ -16,6 +16,7 @@ namespace CCT
     [Authorize]
     public class MembersAreaController : Controller
     {
+        #region Protected Members
         protected AppDBContext mContext;
 
         public class Document : PdfFile
@@ -23,11 +24,16 @@ namespace CCT
             public IFormFile file {get; set;}
         }
 
+        #endregion
+
+        #region Default Constructor
+
         public MembersAreaController(AppDBContext context) 
         {
             mContext = context;
         }
 
+        #endregion
 
         public IActionResult Index()
         {
@@ -61,8 +67,10 @@ namespace CCT
                 await UploadDocument(File);
 
 
-                return View();
+                return YourPDF(File);
             }
+
+
 
             return View();
 
@@ -74,6 +82,11 @@ namespace CCT
             await mContext.SaveChangesAsync();
         }
 
-
+        public IActionResult YourPDF(PdfFile file)
+        {
+            var theFile = mContext.Files.FindAsync(file.Id);
+            var stream = new MemoryStream(theFile.Result.PDF);
+            return new FileStreamResult(stream, "application/pdf");
+        }
     }
 }

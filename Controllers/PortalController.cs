@@ -53,8 +53,6 @@ namespace CCT
         public IActionResult Index(LogInModel credentials)
         {
 
-            SignOut();
-
             var result = signInManager.PasswordSignInAsync(credentials.email, credentials.password, true, false);
 
             if (result.Result.Succeeded) 
@@ -116,8 +114,6 @@ namespace CCT
         [HttpPost]
         public IActionResult NewUser(userClaim User)
         {
-
-            SignOut();
 
             var result = CreateUser(User);
 

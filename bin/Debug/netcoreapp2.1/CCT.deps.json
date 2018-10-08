@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "cedb6ab606a8022a6865de279242c68dc120e9c3"
+    "signature": "618e069fbe9c606308fe085375dc19c4eb42b634"
   },
   "compilationOptions": {
     "defines": [
@@ -24,7 +24,6 @@
     ".NETCoreApp,Version=v2.1": {
       "CCT/1.0.0": {
         "dependencies": {
-          "Ghostscript.NET": "1.2.1",
           "Microsoft.AspNetCore.App": "2.1.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.1.2",
           "Microsoft.NETCore.App": "2.1.0",
@@ -35,17 +34,6 @@
         },
         "compile": {
           "CCT.dll": {}
-        }
-      },
-      "Ghostscript.NET/1.2.1": {
-        "runtime": {
-          "lib/net40/Ghostscript.NET.dll": {
-            "assemblyVersion": "1.2.1.0",
-            "fileVersion": "1.2.1.0"
-          }
-        },
-        "compile": {
-          "lib/net40/Ghostscript.NET.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -4139,13 +4127,6 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "Ghostscript.NET/1.2.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-47rddhzF3edLpIzjpckidLaMjljcetwLPSMTuf4ONM8qqFTFwChyqwhsF9t4FoIafkDElTLK3F83dOAwgP47xQ==",
-      "path": "ghostscript.net/1.2.1",
-      "hashPath": "ghostscript.net.1.2.1.nupkg.sha512"
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "type": "package",

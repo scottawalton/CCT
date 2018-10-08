@@ -2,15 +2,6 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
-      "Ghostscript.NET/1.2.1": {
-        "type": "package",
-        "compile": {
-          "lib/net40/Ghostscript.NET.dll": {}
-        },
-        "runtime": {
-          "lib/net40/Ghostscript.NET.dll": {}
-        }
-      },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "type": "package",
         "dependencies": {
@@ -4346,17 +4337,6 @@
     }
   },
   "libraries": {
-    "Ghostscript.NET/1.2.1": {
-      "sha512": "47rddhzF3edLpIzjpckidLaMjljcetwLPSMTuf4ONM8qqFTFwChyqwhsF9t4FoIafkDElTLK3F83dOAwgP47xQ==",
-      "type": "package",
-      "path": "ghostscript.net/1.2.1",
-      "files": [
-        "ghostscript.net.1.2.1.nupkg.sha512",
-        "ghostscript.net.nuspec",
-        "lib/net40/Ghostscript.NET.dll",
-        "lib/net40/Ghostscript.NET.xml"
-      ]
-    },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "sha512": "rMDlyePoxggkmN/qgha1+BR2Uy+dOr38xKCQOPfVNKGY07R2nYJGMTKJFE1XFgwD70RYUNazf2fqutjJF18XgQ==",
       "type": "package",
@@ -11515,7 +11495,6 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "Ghostscript.NET >= 1.2.1",
       "Microsoft.AspNetCore.App >= 2.1.2",
       "Microsoft.EntityFrameworkCore.SqlServer >= 2.1.2",
       "Microsoft.NETCore.App >= 2.1.0",
@@ -11561,10 +11540,6 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
-          "Ghostscript.NET": {
-            "target": "Package",
-            "version": "[1.2.1, )"
-          },
           "Microsoft.AspNetCore.App": {
             "target": "Package",
             "version": "[2.1.2, )"
@@ -11592,17 +11567,5 @@
         "warn": true
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Ghostscript.NET 1.2.1' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
-      "libraryId": "Ghostscript.NET",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v2.1"
-      ]
-    }
-  ]
+  }
 }
