@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 
-namespace CCT.Controllers
+namespace CCT
 {
     public class PortalController : Controller
     {
@@ -76,9 +76,10 @@ namespace CCT.Controllers
         /// Signs out user using Identity SigninManager
         /// </summary>
         /// <returns></returns>
-        public async void SignOut()
+        public async Task<IActionResult> SignOut()
         {
             await signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
 
         #endregion

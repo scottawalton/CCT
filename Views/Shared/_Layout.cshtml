@@ -32,12 +32,16 @@
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li style="float: right"><a asp-area="" asp-controller="Portal" asp-action="Index">Portal</a></li>
-
                     @if (Context.User.Identity.IsAuthenticated) {
                         <li><a asp-area="" asp-controller="MembersArea" asp-action="Index">Members</a></li>
                     }
 
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a asp-area="" asp-controller="Portal" asp-action="Index">Portal</a></li>
+                    @if (Context.User.Identity.IsAuthenticated) {
+                        <li><a asp-area="" asp-controller="Portal" asp-action="SignOut">Sign Out</a></li>
+                    } 
                 </ul>
             </div>
         </div>

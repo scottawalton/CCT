@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CCT.Models;
 
-namespace CCT.Controllers
+namespace CCT
 {
     public class HomeController : Controller
     {
