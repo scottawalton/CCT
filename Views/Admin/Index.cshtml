@@ -1,0 +1,10 @@
+@{
+    ViewData["Title"] = "Welcome to the Admin Area!";
+}
+
+<h2>Welcome to the Admin Area, @Context.User.Identity.Name </h2>
+
+<p>You may do any of the following:</p>
+
+<p><a href="/Admin/ManageDocuments">Manage Documents</a></p>
+<p><a href="/Admin/ManageUsers">Manage Users</a></p>

@@ -10,18 +10,22 @@ namespace CCT
 {
     public class HomeController : Controller
     {
-    
+        #region Protected Members
         protected AppDBContext mContext;
+        #endregion
 
+        #region Default Const
         public HomeController(AppDBContext context) 
         {
             mContext = context;
         }
+        #endregion
 
 
         public IActionResult Index()
         {
             mContext.Database.EnsureCreated();
+
             return View();
         }
 

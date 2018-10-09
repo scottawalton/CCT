@@ -14,12 +14,15 @@ namespace CCT
         #region Protected Members
         protected static UserManager<User> userManager;
         protected static SignInManager<User> signInManager;
+        protected static RoleManager<IdentityRole> roleManager;
         protected static AppDBContext context;
         public class userClaim : User
         {
             [Required]
             [DataType(DataType.Password)]
             public string password {get; set;}
+
+            public bool admin {get; set;}
         }
 
         public class LogInModel
@@ -33,11 +36,13 @@ namespace CCT
         #region Default Contstructor
         public PortalController(AppDBContext _context,
                                 UserManager<User> _userManager,  
-                                SignInManager<User> _signInManager ) 
+                                SignInManager<User> _signInManager,
+                                RoleManager<IdentityRole> _roleManager) 
         {
             context = _context;
             userManager = _userManager;
             signInManager = _signInManager;
+            roleManager = _roleManager;
 
         }
         #endregion
@@ -57,7 +62,7 @@ namespace CCT
 
             if (result.Result.Succeeded) 
             {
-                return RedirectToAction("Index", "MembersArea");
+                return RedirectToAction("Index", "Members");
             }
             else
             {
@@ -89,11 +94,23 @@ namespace CCT
         /// <returns>Returns an IdentityResult</returns>
         public async Task<IdentityResult> CreateUser(userClaim User)
         {
-            User.UserName = User.Email;
+            User.UserName = User.FirstName + " " + User.LastName;
 
             // WIP -- Hashing pass with 265 SHA
 
             IdentityResult result = await userManager.CreateAsync(User, User.password);
+
+
+            ///////////////// REMOVE AFTER DEVELOPMENT COMPLETE ///////////////////////
+            // Also: remove RoleManager in constructor and protected members
+            // as well as the checkbox on the view
+
+            if (User.admin)
+            {
+                IdentityRole admin = new IdentityRole();
+                await roleManager.CreateAsync(admin);
+                await userManager.AddToRoleAsync(User, "admin");
+            }
 
             return result;
         }
@@ -103,8 +120,6 @@ namespace CCT
         /// </summary>
         public IActionResult NewUser()
         {
-
-            var user = new userClaim();
             return View();
         }
 
@@ -120,7 +135,7 @@ namespace CCT
             // Redirects them to the Members area if successful; otherwise, reloads page and shows error
             if (result.Result.Succeeded) {
                 signInManager.SignInAsync(User, true);
-                return RedirectToAction("Index", "MembersArea");
+                return RedirectToAction("Index", "Members");
             }  
             else {
                 ViewBag.errors = result.Result.Errors;

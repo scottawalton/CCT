@@ -12,12 +12,13 @@ using System.IO;
 
 namespace CCT
 {
-    // Makes entire area private
-    [Authorize]
-    public class MembersAreaController : Controller
+    // Makes entire area private to only Admins
+        [Authorize(Roles = "admin")]
+    public class AdminController : Controller
     {
         #region Protected Members
         protected AppDBContext mContext;
+        protected UserManager<User> userManager;
 
         public class Document : PdfFile
         {
@@ -28,9 +29,11 @@ namespace CCT
 
         #region Default Constructor
 
-        public MembersAreaController(AppDBContext context) 
+        public AdminController(AppDBContext _context,
+                                UserManager<User> _userManager) 
         {
-            mContext = context;
+            userManager = _userManager;
+            mContext = _context;
         }
 
         #endregion
@@ -41,6 +44,7 @@ namespace CCT
             return View();
         }
 
+        #region Manage Documents
         public IActionResult ManageDocuments()
         {
             return View();
@@ -67,7 +71,7 @@ namespace CCT
                 await UploadDocument(File);
 
 
-                return YourPDF(File);
+                return LoadPDF(File.Id);
             }
 
 
@@ -82,11 +86,17 @@ namespace CCT
             await mContext.SaveChangesAsync();
         }
 
-        public IActionResult YourPDF(PdfFile file)
+        public IActionResult LoadPDF(int fileID)
         {
-            var theFile = mContext.Files.FindAsync(file.Id);
+            var theFile = mContext.Files.FindAsync(fileID);
             var stream = new MemoryStream(theFile.Result.PDF);
             return new FileStreamResult(stream, "application/pdf");
+        }
+        #endregion
+
+        public IActionResult ManageUsers()
+        {
+            return View();
         }
     }
 }
