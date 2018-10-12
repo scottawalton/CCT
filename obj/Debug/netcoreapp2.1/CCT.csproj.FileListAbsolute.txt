@@ -32,7 +32,11 @@
 /home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/CCT.csproj.CopyComplete
 /home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Views/Portal/Index.g.cshtml.cs
 /home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Views/Portal/NewUser.g.cshtml.cs
-/home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Views/Admin/Index.g.cshtml.cs
-/home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Views/Admin/ManageDocuments.g.cshtml.cs
-/home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Views/Members/Index.g.cshtml.cs
-/home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Views/Admin/ManageUsers.g.cshtml.cs
+/home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Areas/Admin/Views/Home/Index.g.cshtml.cs
+/home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Areas/Members/Views/Home/Index.g.cshtml.cs
+/home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Areas/Admin/Views/Documents/Index.g.cshtml.cs
+/home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Areas/Admin/Views/Users/Index.g.cshtml.cs
+/home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Areas/Admin/Views/_ViewImports.g.cshtml.cs
+/home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Areas/Admin/Views/_ViewStart.g.cshtml.cs
+/home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Areas/Members/Views/_ViewImports.g.cshtml.cs
+/home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Areas/Members/Views/_ViewStart.g.cshtml.cs

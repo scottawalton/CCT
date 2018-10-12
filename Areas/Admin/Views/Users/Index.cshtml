@@ -1,0 +1,46 @@
+@{
+    ViewData["Title"] = "Manage Users";
+}
+
+@model CCT.Admin.UsersController.UserList
+
+
+<h2>Welcome to the User Management Area, @Context.User.Identity.Name </h2>
+
+
+<p>A table of users will go here and they will have to options to Edit or Delete, as well as Add a new User</p>
+
+<table class="table table-striped">
+    <tr>
+        <td style="font-weight: bold">
+            First Name
+        </td>
+        <td style="font-weight: bold">
+            Last Name
+        </td>
+        <td style="font-weight: bold">
+            Email
+        </td>
+        <td style="font-weight: bold">
+            Actions
+        </td>
+    </tr>
+
+    @foreach (var user in Model.userlist)
+    {
+        <tr>
+            <td>
+                @user.FirstName
+            </td>
+            <td>
+                @user.LastName
+            </td>
+            <td>
+                @user.Email
+            </td>
+            <td>
+                <p><a asp-controller="UsersController" asp-area="Admin" asp-action="Edit">Edit </a><a>View </a><a>Delete</a></p>
+            </td>
+        </tr>
+    }
+</table>

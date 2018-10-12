@@ -10,11 +10,12 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 
-namespace CCT
+namespace CCT.Members
 {
     // Makes entire area private
+    [Area("Members")]
     [Authorize]
-    public class MembersController : Controller
+    public class HomeController : Controller
     {
         #region Protected Members
         protected AppDBContext mContext;
@@ -28,7 +29,7 @@ namespace CCT
 
         #region Default Constructor
 
-        public MembersController(AppDBContext context) 
+        public HomeController(AppDBContext context) 
         {
             mContext = context;
         }

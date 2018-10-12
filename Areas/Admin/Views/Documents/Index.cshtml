@@ -1,13 +1,13 @@
 @{
     ViewData["Title"] = "Manage Documents";
 }
-@model CCT.AdminController.Document
+@model CCT.Admin.DocumentsController.Document
 
 <h2>Welcome to the Document Management Area, @Context.User.Identity.Name </h2>
 
 
 <p>Upload a PDF file to be displayed.</p>
-<form method="POST" enctype="multipart/form-data" asp-controller="Admin" asp-action="ManageDocuments">
+<form method="POST" enctype="multipart/form-data" asp-area="Admin" asp-controller="Documents" asp-action="Index">
     <input type="file" asp-for="file"/>
     <br>
     <input value="Hours" asp-for="Category" hidden/>
