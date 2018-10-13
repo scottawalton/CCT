@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using System.ComponentModel.DataAnnotations;
 
 namespace CCT.Admin
 {
@@ -48,5 +49,87 @@ namespace CCT.Admin
 
             return View(users);
         }
+
+
+        #region Delete User
+
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+
+            var userSearch = mContext.Users.FindAsync(id);
+            User user = userSearch.Result;
+            await userManager.DeleteAsync(user);
+
+            return RedirectToAction("Index", "Users");
+        }
+
+        #endregion
+
+        #region View User
+        public IActionResult ViewUser(string id)
+        {
+            var userSearch = mContext.Users.FindAsync(id);
+            User user = userSearch.Result;
+
+
+            return View(user);
+
+        }
+        #endregion
+
+        #region Edit User
+        public IActionResult EditUser(string id)
+        {
+            var userSearch = mContext.Users.FindAsync(id);
+
+            User user = userSearch.Result;
+
+            return View(user);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditUser(User revisedUser)
+        {
+
+            var userSearch = mContext.Users.FindAsync(revisedUser.Id);
+            User user = userSearch.Result;
+
+
+            if (!user.Equals(null))
+            {
+                user.Email = revisedUser.Email;
+                user.FirstName = revisedUser.FirstName;
+                user.LastName = revisedUser.LastName;
+
+                await mContext.SaveChangesAsync();
+            }
+
+            return RedirectToAction("Index", "Users");
+        }
+        #endregion
+
+        #region Create User
+
+        public IActionResult CreateUser()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateUser(PortalController.userClaim User)
+        {
+
+            var result = PortalController.CreateUser(User);
+
+            if (result.Result.Succeeded) {
+
+                return RedirectToAction("Index", "Users");
+            }  
+            else {
+                ViewBag.errors = result.Result.Errors;
+                return View();
+            }
+        }
+        #endregion
     }
 }

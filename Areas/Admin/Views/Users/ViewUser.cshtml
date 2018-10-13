@@ -1,0 +1,33 @@
+@model CCT.User
+@{
+    ViewData["Title"] = "View User - " + Model.UserName;
+}
+
+
+<h4 style="padding: 5vh 0 5vh 0">Viewing user: @Html.DisplayFor(user => user.UserName)</h4>
+
+@* Using DisplayFor instead of the normal Model.property because it is throwing an error.
+This is the only working solution after 2 hours of googling. *@
+
+<div>
+    <table class="table">
+        <tr>
+            <th>First Name</th>
+            <td>@Html.DisplayFor(user => user.FirstName)</td>
+        </tr>
+        <tr>
+            <th>Last Name</th>
+            <td>@Html.DisplayFor(user => user.LastName)</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>@Html.DisplayFor(user => user.Email)</td>
+        </tr>
+        <tr>
+            <th>Apartment Number</th>
+            <td>0</td>
+        </tr>
+    </table>
+    <br>
+    <button class="btn btn-secondary" onclick="window.history.go(-1)">Back</button>
+</div>

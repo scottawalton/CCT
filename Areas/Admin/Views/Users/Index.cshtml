@@ -10,6 +10,7 @@
 
 <p>A table of users will go here and they will have to options to Edit or Delete, as well as Add a new User</p>
 
+
 <table class="table table-striped">
     <tr>
         <td style="font-weight: bold">
@@ -39,8 +40,19 @@
                 @user.Email
             </td>
             <td>
-                <p><a asp-controller="UsersController" asp-area="Admin" asp-action="Edit">Edit </a><a>View </a><a>Delete</a></p>
+                <p style="display:inline">
+                    <a asp-controller="Users" asp-area="Admin" asp-action="EditUser" asp-route-id="@user.Id">Edit</a>
+                    <p style="display:inline"> | </p>
+                    <a asp-controller="Users" asp-area="Admin" asp-action="ViewUser" asp-route-id="@user.Id">View</a>
+                    <p style="display:inline"> | </p>
+                    <a asp-controller="Users" asp-area="Admin" asp-action="DeleteUser" asp-route-id="@user.Id" onclick="return confirm('This will delete all records of the user. \n Press OK to proceed.')">Delete</a>
+                </p>
             </td>
         </tr>
     }
 </table>
+<a asp-area="Admin" asp-controller="Users" asp-action="CreateUser">
+<input type="button" class="btn btn-primary" value="Create New User">
+</a>
+<br><br>
+<button class="btn btn-secondary" onclick="window.history.go(-1)">Back</button>

@@ -40,3 +40,6 @@
 /home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Areas/Admin/Views/_ViewStart.g.cshtml.cs
 /home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Areas/Members/Views/_ViewImports.g.cshtml.cs
 /home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Areas/Members/Views/_ViewStart.g.cshtml.cs
+/home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Areas/Admin/Views/Users/EditUser.g.cshtml.cs
+/home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Areas/Admin/Views/Users/ViewUser.g.cshtml.cs
+/home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Areas/Admin/Views/Users/CreateUser.g.cshtml.cs

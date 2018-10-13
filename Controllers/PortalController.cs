@@ -92,9 +92,9 @@ namespace CCT
         /// Attempts to create a new user and write it to the database using Usermanager
         /// </summary>
         /// <returns>Returns an IdentityResult</returns>
-        public async Task<IdentityResult> CreateUser(userClaim User)
+        public static async Task<IdentityResult> CreateUser(userClaim User)
         {
-            User.UserName = User.FirstName + " " + User.LastName;
+            User.UserName = User.FirstName + "_" + User.LastName;
 
             // WIP -- Hashing pass with 265 SHA
 
@@ -134,7 +134,7 @@ namespace CCT
 
             // Redirects them to the Members area if successful; otherwise, reloads page and shows error
             if (result.Result.Succeeded) {
-                signInManager.SignInAsync(User, true);
+
                 return RedirectToAction("Index", "Members");
             }  
             else {

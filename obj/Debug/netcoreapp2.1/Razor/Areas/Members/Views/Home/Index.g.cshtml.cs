@@ -92,7 +92,7 @@ using CCT.Models;
 <h4>Wanna view the admin panel? ");
             EndContext();
             BeginContext(839, 75, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "046daf9cb8044f82b6e7a5be8c4a254c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2670333fe87a422e82dcff4495e47fbd", async() => {
                 BeginContext(900, 10, true);
                 WriteLiteral("Click here");
                 EndContext();
