@@ -5,12 +5,17 @@
 
 <h2>Welcome to the Document Management Area, @Context.User.Identity.Name </h2>
 
+<div>
+    @await Component.InvokeAsync("DocList")
+</div>
 
 <p>Upload a PDF file to be displayed.</p>
 <form method="POST" enctype="multipart/form-data" asp-area="Admin" asp-controller="Documents" asp-action="Index">
     <input type="file" asp-for="file" />
     <br>
     <input value="Hours" asp-for="Category" hidden/>
+    <input type="text" asp-for="Name" class="form-control"/>
+    <br>
     <div style="padding-top: 4vh">
     <input type="submit" value="Upload"  class="btn btn-primary"/>
     <button type="button" class="btn btn-secondary" style="display: inline;margin-left: 4vw" onclick="window.history.go(-1)">Cancel</button>

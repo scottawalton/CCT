@@ -25,6 +25,7 @@ namespace CCT.Admin
         {
             public IFormFile file {get; set;}
         }
+
         #endregion
 
         #region Default Constructor
@@ -39,7 +40,9 @@ namespace CCT.Admin
 
         public IActionResult Index()
         {
+
             mContext.Database.EnsureCreated();
+
             return View();
         }
 
@@ -49,7 +52,9 @@ namespace CCT.Admin
 
             PdfFile File = new PdfFile
             {
-            Category = doc.Category
+            Category = doc.Category,
+            OriginalName = doc.file.FileName,
+            Name = doc.file.Name
             };
 
             if (ModelState.IsValid)
@@ -70,6 +75,8 @@ namespace CCT.Admin
             return View();
         }
 
+
+        #region Functions
         public async Task UploadDocument(PdfFile pdf)
         {
             await mContext.AddAsync<PdfFile>(pdf);
@@ -77,12 +84,21 @@ namespace CCT.Admin
 
         }
 
-        public IActionResult LoadPDF(int fileID)
+        public IActionResult LoadPDF(int Id)
         {
-            var theFile = mContext.Files.FindAsync(fileID);
+            var theFile = mContext.Files.FindAsync(Id);
             var stream = new MemoryStream(theFile.Result.PDF);
             return new FileStreamResult(stream, "application/pdf");
         }
+
+        public FileResult Download(int Id)
+        {
+            var theFile = mContext.Files.FindAsync(Id);
+            var stream = new MemoryStream(theFile.Result.PDF);
+            return File(stream, "application/pdf", theFile.Result.OriginalName);
+        }
+
+        #endregion
     }
 }
 
