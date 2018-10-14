@@ -16,19 +16,52 @@ namespace CCT.ViewComponents
             mContext = _context;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(string category)
+        public async Task<IViewComponentResult> InvokeAsync(string category, string accessLevel)
         {
 
             if(category == null)
             {
-                List<PdfFile> alldocs = await Task.Run(() => mContext.Files.ToList());
+                if(accessLevel == null)
+                {
+                    // No arguments were passed -- default functionality: return all files
 
-                return View(alldocs);
+                    List<PdfFile> alldocs = await Task.Run(() => mContext.Files.ToList());
+
+                    return View(alldocs);
+                }
+                else
+                {
+                    // Access Level was passed-- displays all with access level equal to given or public
+
+                    List<PdfFile> accessableDocs = await Task.Run(() => mContext.Files.Where(
+                        x => x.AccessLevel == accessLevel || x.AccessLevel == "public"
+                    ).ToList());
+
+                    return View(accessableDocs);
+                }
             }
+            else
+            {
+                if(accessLevel == null)
+                {
+                    // Access Level was not passed-- displays all documents with category
 
-            List<PdfFile> docs = await Task.Run(() => mContext.Files.Where(x => x.Category == category).ToList());
+                    List<PdfFile> catdocs = await Task.Run(() => mContext.Files.Where(
+                        x => x.Category == category).ToList());
 
-            return View(docs);
+                    return View(catdocs);
+                }
+                else
+                {
+                    // All arguments passed -- displays all documents that have the appropriate category and access level
+
+                    List<PdfFile> docs = await Task.Run(() => mContext.Files.Where(
+                        x => x.Category == category && (x.AccessLevel == accessLevel) || (x.AccessLevel == "public")
+                        ).ToList());
+
+                    return View(docs);
+                }
+            }
         }
 
     }

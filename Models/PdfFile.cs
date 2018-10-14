@@ -10,6 +10,6 @@ namespace CCT.Models
        public string Category {get; set;}
        public string OriginalName {get; set;}
        public string Name {get; set;}
-
+       public string AccessLevel {get; set;}
     }
 }

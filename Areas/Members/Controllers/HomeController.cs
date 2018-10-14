@@ -12,18 +12,12 @@ using System.IO;
 
 namespace CCT.Members
 {
-    // Makes entire area private
     [Area("Members")]
-    [Authorize]
+    [Authorize(Roles="member,admin")]
     public class HomeController : Controller
     {
         #region Protected Members
         protected AppDBContext mContext;
-
-        public class Document : PdfFile
-        {
-            public IFormFile file {get; set;}
-        }
 
         #endregion
 
@@ -40,13 +34,6 @@ namespace CCT.Members
         {
             mContext.Database.EnsureCreated();
             return View();
-        }
-
-        public IActionResult LoadPDF(int fileID)
-        {
-            var theFile = mContext.Files.FindAsync(fileID);
-            var stream = new MemoryStream(theFile.Result.PDF);
-            return new FileStreamResult(stream, "application/pdf");
         }
     }
 }

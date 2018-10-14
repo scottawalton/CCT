@@ -30,8 +30,7 @@ namespace CCT.Admin
 
         #region Default Constructor
 
-        public DocumentsController(AppDBContext _context,
-                                UserManager<User> _userManager) 
+        public DocumentsController(AppDBContext _context) 
         {
             mContext = _context;
         }
@@ -54,7 +53,8 @@ namespace CCT.Admin
             {
             Category = doc.Category,
             OriginalName = doc.file.FileName,
-            Name = doc.file.Name
+            Name = doc.Name,
+            AccessLevel = doc.AccessLevel
             };
 
             if (ModelState.IsValid)
@@ -68,35 +68,21 @@ namespace CCT.Admin
 
                 await UploadDocument(File);
 
+                // TODO: Display success message.
 
-                return LoadPDF(File.Id);
             }
 
             return View();
         }
-
 
         #region Functions
         public async Task UploadDocument(PdfFile pdf)
         {
             await mContext.AddAsync<PdfFile>(pdf);
             await mContext.SaveChangesAsync();
-
         }
 
-        public IActionResult LoadPDF(int Id)
-        {
-            var theFile = mContext.Files.FindAsync(Id);
-            var stream = new MemoryStream(theFile.Result.PDF);
-            return new FileStreamResult(stream, "application/pdf");
-        }
-
-        public FileResult Download(int Id)
-        {
-            var theFile = mContext.Files.FindAsync(Id);
-            var stream = new MemoryStream(theFile.Result.PDF);
-            return File(stream, "application/pdf", theFile.Result.OriginalName);
-        }
+        // TODO: Implement access levels and ability to edit them
 
         #endregion
     }
