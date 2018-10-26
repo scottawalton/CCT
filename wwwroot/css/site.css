@@ -28,6 +28,25 @@ body {
     margin: 15px;
 }
 
+.prompt-box {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    heighT: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.prompt {
+    background-color: rgb(100, 200, 150);
+    margin: 30% auto;
+    padding: 20%;
+    border: 5px;
+    width: 70%;
+}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */

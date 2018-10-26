@@ -38,5 +38,18 @@ namespace CCT.Admin
             return View();
         }
 
+        public IActionResult Calendar()
+        {
+            return View();
+        }
+
+        public JsonResult GetEvents()
+        {
+            List<Event> eventList = new List<Event>();
+
+            // Get events from database 
+
+            return Json(eventList);
+        }
     }
 }

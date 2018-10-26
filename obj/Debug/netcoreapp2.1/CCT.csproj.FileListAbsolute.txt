@@ -44,3 +44,4 @@
 /home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Areas/Admin/Views/Users/ViewUser.g.cshtml.cs
 /home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Areas/Admin/Views/Users/CreateUser.g.cshtml.cs
 /home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Views/Shared/Components/DocList/Default.g.cshtml.cs
+/home/vesi/documents/bin/CCT/obj/Debug/netcoreapp2.1/Razor/Areas/Admin/Views/Home/Calendar.g.cshtml.cs

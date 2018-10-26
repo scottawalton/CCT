@@ -16,6 +16,7 @@ namespace CCT
         {
         }
 
-        public DbSet<PdfFile> Files { get; set;}
+        public DbSet<PdfFile> Files { get; set; }
+        public DbSet<Event> Events { get; set; }
     }
 }
