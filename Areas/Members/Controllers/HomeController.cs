@@ -35,5 +35,9 @@ namespace CCT.Members
             mContext.Database.EnsureCreated();
             return View();
         }
+        public IActionResult Calendar()
+        {
+            return View();
+        }
     }
 }

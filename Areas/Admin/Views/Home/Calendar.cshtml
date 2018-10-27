@@ -7,9 +7,12 @@
 
 
 <link rel="stylesheet" href="~/css/fullcalendar.min.css">
+<link rel="stylesheet" href="~/css/timepicker.css">
 
 <script src='~/js/moment.min.js'></script>
 <script src='~/js/fullcalendar.min.js'></script>
+<script src='~/js/bootstrap-datepicker.js'></script>
+<script src='~/js/bootstrap-timepicker.js'></script>
 
 <script type='text/javascript'>
     $(document).ready(function() {
@@ -18,6 +21,7 @@
         var d = date.getDate();
         var m = date.getMonth();
         var y = date.getFullYear();
+
 
         $('#calendar').each(function(){
             var calendar = $(this);
@@ -49,10 +53,11 @@
 </script>
 
 
-
 <div class='container'>
         <div class="col-md-10 col-md-offset-1" id='calendar'></div>
 </div>
+<button type="button" class="btn btn-lg btn-secondary" style="margin-top: 4vh; margin-left: 4vw" onclick="window.history.go(-1)">Back</button>
+
 
 @* a prompt box that appears when they click on the calendar *@
 <div id="eventPrompt" class="modal fade" role="dialog">
@@ -64,23 +69,53 @@
 
             <div class="modal-body">
                 <div class="form-group">
-                <label for="title">Event Title:</label>
-                <input class="form-control" asp-for="title" id="title">
+                    <label for="title">Event Title:</label>
+                    <input class="form-control" asp-for="title" id="title">
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="start">Event Start Date:</label>
+                            <div class="input-group date" data-provide="datepicker" data-date-autoclose="true">
+                                <input type="text" class="form-control" id="start-date">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-th"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label></label>
+                            <input class="form-control" asp-for="start" data-provide="timepicker" id="start-time">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="end">Event End Date:</label>
+                            <div class="input-group date" data-provide="datepicker" data-date-autoclose="true">
+                                <input type="text" class="form-control" id="end-date">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-th"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4" style="display: inline-block">
+                        <div class="form-group">
+                            <label></label>
+                            <input class="form-control" asp-for="end"  data-provide="timepicker" id="end-time">
+                        </div>
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="start">Event Start Date:</label>
-                    <input class="form-control" asp-for="start" id="start">
-                </div>
-
-                <div class="form-group col-3">
-                <label for="end">Event End Date:</label>
-                <input class="form-control" asp-for="end" id="end">
-                </div>
-
-                <div class="form-group">
-                <label for="description">Event Description:</label>
-                <textarea class="form-control" asp-for="description" id="description"></textarea>
+                    <label for="description">Event Description:</label>
+                    <textarea class="form-control" asp-for="description" id="description"></textarea>
                 </div>
             </div>
 

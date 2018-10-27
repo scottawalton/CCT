@@ -1,19 +1,13 @@
 @{
     ViewData["Title"] = "Welcome to the Members Area!";
 }
-
-<div id="jump-to-doc" style="float:right; font-size: 3vh; color: blue; text-decoration: underline">
-    <h2 style="color: black !important; text-decoration: none">Jump to:</h2>
-    <p>Recent Settlements</p>
-    <p>Past Settlements</p>
-    <p>Future Settlements</p>
-</div>
 <h2>Welcome to the Members Area, @Context.User.Identity.Name </h2>
 
 <br>
-<h4>Wanna view the admin panel? <a asp-area="Admin" asp-controller="Home" asp-action="Index">Click here</a></h4>
+<h4>View the admin panel: <a asp-area="Admin" asp-controller="Home" asp-action="Index">Click here</a></h3>
+<h4>View the upcoming events: <a asp-area="Members" asp-controller="Home" asp-action="Calendar">Click here</a></h3>
 <br>
-<h3><b>All documents:</b><h3>
+<h3 class="col-md-offset-1"><b>All documents:</b></h3>
 
 <div>
     @await Component.InvokeAsync("DocList", new {accessLevel = "public"})

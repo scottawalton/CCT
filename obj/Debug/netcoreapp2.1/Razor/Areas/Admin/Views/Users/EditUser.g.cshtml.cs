@@ -69,12 +69,12 @@ using CCT.Models;
             WriteLiteral("\n\n<h4 style=\"padding: 5vh 0 5vh 0\">Change the values to suit your needs. When complete, please press save.</h4>\n\n<div>\n    ");
             EndContext();
             BeginContext(202, 761, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "262c7ee781364938aca37a5d3504c22d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e1b18f5e3fa8447891a806d0702ae9dd", async() => {
                 BeginContext(284, 160, true);
                 WriteLiteral("\n    <table>\n        <tr>\n            <th>First Name</th>\n            <th>Last Name</th>\n        </tr>\n        <tr>\n            <td style=\"padding-right: 25px\">");
                 EndContext();
                 BeginContext(444, 47, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "182c1f20c8e64024bf4703943934f9e3", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "85b1705ba299495da0cda05e8b048093", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -98,7 +98,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("</td>\n            <td>");
                 EndContext();
                 BeginContext(513, 46, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "baa85bc3eb494970920acca0c8ab5ac4", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "1c60b31a07674ecc9294003a9dc2b974", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -122,7 +122,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("</td>\n        </tr>\n    </table>\n    <br>\n    <p style=\"padding-top: 3vh; margin-bottom: -0.2vh; font-weight: bold\">Email</p>\n    ");
                 EndContext();
                 BeginContext(689, 23, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "e44e6dcad0864fc6a3c009fbf6a5719f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "c209cfcc2826478f83f6fcfaa2c1b5e3", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();

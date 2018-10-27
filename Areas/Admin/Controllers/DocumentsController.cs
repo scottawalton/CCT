@@ -45,8 +45,15 @@ namespace CCT.Admin
             return View();
         }
 
+
+        #region Upload Documents
+        public IActionResult Upload()
+        {
+            return View();
+        }
+        
         [HttpPost]
-        public async Task<IActionResult> Index(Document doc)
+        public async Task<IActionResult> Upload(Document doc)
         {
 
             PdfFile File = new PdfFile
@@ -70,10 +77,14 @@ namespace CCT.Admin
 
                 // TODO: Display success message.
 
+                ViewBag.result = "Upload successful!";
+
             }
 
             return View();
         }
+
+        #endregion
 
         #region Functions
         public async Task UploadDocument(PdfFile pdf)

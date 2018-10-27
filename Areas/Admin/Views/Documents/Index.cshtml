@@ -4,33 +4,16 @@
 @model CCT.Admin.DocumentsController.Document
 
 <h2>Welcome to the Document Management Area, @Context.User.Identity.Name </h2>
+<h4 class="col-md-offset-1"><b>These are all of the documents:</b></h4>
 
 <div>
     @await Component.InvokeAsync("DocList", new {category = "Hours"})
 </div>
 
-<p>Upload a PDF document to be displayed.</p>
-<form method="POST" enctype="multipart/form-data" asp-area="Admin" asp-controller="Documents" asp-action="Index">
-    <input value="Hours" asp-for="Category" hidden/>
-    <label for="cat">Category of Document: </label>
-    <select id="cat" class="form-control" asp-for="Category" style="display: inline">
-        <option value="General">General</option>
-        <option value="Proposed">Proposed</option>
-    </select>
-    <br><br>
-    <label for="access">Access level of Document: </label>
-    <select id="access" class="form-control" asp-for="AccessLevel" style="display: inline">
-        <option value="members">Members Only</option>
-        <option value="public">Public</option>
-    </select>
-    <br><br>
-    <label for="Name" >Document Name:</label>
-    <input type="text" id="Name" asp-for="Name" class="form-control"/>
+<div>
+    <a asp-area="Admin" asp-controller="Documents" asp-action="Upload">
+    <input type="button" class="btn btn-primary" value="Upload New Document">
+    </a>
     <br>
-    <input type="file" asp-for="file" />
-    <br>
-    <div style="padding-top: 4vh">
-    <input type="submit" value="Upload"  class="btn btn-primary"/>
-    <button type="button" class="btn btn-secondary" style="display: inline;margin-left: 4vw" onclick="window.history.go(-1)">Cancel</button>
-    </div>
-</form>
+    <button type="button" class="btn btn-secondary" style="margin-top: 4vh" onclick="window.history.go(-1)">Back</button>
+</div>

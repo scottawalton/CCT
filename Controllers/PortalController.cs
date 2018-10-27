@@ -60,15 +60,20 @@ namespace CCT
 
             var result = signInManager.PasswordSignInAsync(credentials.email, credentials.password, true, false);
 
-            if (result.Result.Succeeded) 
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("Index", "Members");
+                if (result.Result.Succeeded) 
+                {
+                    return RedirectToAction("Index", "Members");
+                }
+                else
+                {
+                    ViewBag.errors = "Log in attempt failed. Incorrect username or password.";
+                    return View();
+                }
             }
-            else
-            {
-                ViewBag.errors = "Log in attempt failed.";
-                return View();
-            }
+
+            return View();
 
         }
 
@@ -107,7 +112,7 @@ namespace CCT
 
             if (User.admin)
             {
-                IdentityRole admin = new IdentityRole();
+                IdentityRole admin = new IdentityRole("admin");
                 await roleManager.CreateAsync(admin);
                 await userManager.AddToRoleAsync(User, "admin");
             }

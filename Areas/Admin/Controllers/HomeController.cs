@@ -45,11 +45,18 @@ namespace CCT.Admin
 
         public JsonResult GetEvents()
         {
-            List<Event> eventList = new List<Event>();
-
             // Get events from database 
 
+            List<Event> eventList = mContext.Events.ToList();
+
             return Json(eventList);
+        }
+
+        public async Task NewEvent(Event evnt)
+        {
+
+            await mContext.Events.AddAsync(evnt);
+
         }
     }
 }
