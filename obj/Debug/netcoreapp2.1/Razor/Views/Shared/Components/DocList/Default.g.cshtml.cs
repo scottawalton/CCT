@@ -67,7 +67,7 @@ using CCT.Models;
             WriteLiteral("    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-md-8 col-md-offset-2\">\n                <div class=\"border\" style=\"background-color: #eee; padding: 5px 30px 5px 30px; height: 50px; line-height: 50px\">\n                    ");
             EndContext();
             BeginContext(309, 212, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8587e560f35347d4817f8203173dcbdd", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c03f3522a46b485b87bd9cd1add9f1be", async() => {
                 BeginContext(411, 69, true);
                 WriteLiteral("\n                    <span style=\"color:darkblue\">Click here to view ");
                 EndContext();
@@ -117,7 +117,7 @@ using CCT.Models;
             WriteLiteral("\n                    ");
             EndContext();
             BeginContext(542, 233, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3152762f336e40789907c781ce055af8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "520fa31ecd8b4f3da8846f8ccd126273", async() => {
                 BeginContext(629, 142, true);
                 WriteLiteral("\n                    <span style=\"display: inline; float: right; color: green; text-decoration:underline\">Download</span>\n                    ");
                 EndContext();

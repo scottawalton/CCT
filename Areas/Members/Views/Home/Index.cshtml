@@ -7,8 +7,34 @@
 <h4>View the admin panel: <a asp-area="Admin" asp-controller="Home" asp-action="Index">Click here</a></h3>
 <h4>View the upcoming events: <a asp-area="Members" asp-controller="Home" asp-action="Calendar">Click here</a></h3>
 <br>
-<h3 class="col-md-offset-1"><b>All documents:</b></h3>
+<div class="col-md-offset-1">
+    <h3><b>Documents: </b><span style="display: inline" id="category-title"></span></h3>
+
+    <div class="dropdown" onchange="alertUser()">
+        <select id="category-dropdown" class="category-dropdown">
+            <option value="">All Documents</option>
+            <option value="Articles of Incorporation">Articles of Incorporation</option>
+            <option value="Bylaws">Bylaws</option>
+            <option value="Declaration of Condominium">Declaration of Condominium</option>
+            <option value="Rules and Regulations">Rules and Regulations</option>
+            <option value="Executory Contract and List of Bids">Executory Contract and List of Bids</option>
+            <option value="Annual Budgets">Annual Budgets</option>
+            <option value="Financial Reports">Financial Reports</option>
+            <option value="Certification of Board Members">Certification of Board Members</option>
+        </select>
+    </div>
+</div>
+
+<br>
 
 <div>
     @await Component.InvokeAsync("DocList", new {accessLevel = "public"})
 </div>
+
+<script>
+    function alertUser() {
+        dropdown = document.getElementById("category-dropdown");
+        categoryTitle = document.getElementById("category-title")
+        categoryTitle.innerText = dropdown.options[dropdown.selectedIndex].text;
+    };
+</script>

@@ -60,7 +60,9 @@ namespace CCT
 
             var result = signInManager.PasswordSignInAsync(credentials.email, credentials.password, true, false);
 
-            if (ModelState.IsValid)
+            // I may instead opt for global validation that none of the required parameters are null
+            // For now, this is sufficient. We only have 2 instances where it is required.
+            if (credentials.email != null && ModelState.IsValid)
             {
                 if (result.Result.Succeeded) 
                 {

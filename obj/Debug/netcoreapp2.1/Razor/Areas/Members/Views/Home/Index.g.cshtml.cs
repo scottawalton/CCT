@@ -74,7 +74,7 @@ using CCT.Models;
             WriteLiteral(" </h2>\n\n<br>\n<h4>View the admin panel: ");
             EndContext();
             BeginContext(160, 75, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4670b97c29044d9c9bf6d59fceaea716", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "246ede12541f42e98a9e03b809cafdb8", async() => {
                 BeginContext(221, 10, true);
                 WriteLiteral("Click here");
                 EndContext();
@@ -100,7 +100,7 @@ using CCT.Models;
             WriteLiteral("</h3>\n<h4>View the upcoming events: ");
             EndContext();
             BeginContext(271, 80, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d60137aa860a40139b9537ce30e21f55", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b719ad30bb2a4a83ac86ab32a56c8294", async() => {
                 BeginContext(337, 10, true);
                 WriteLiteral("Click here");
                 EndContext();
