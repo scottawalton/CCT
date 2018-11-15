@@ -21,13 +21,14 @@
             <option value="Annual Budgets">Annual Budgets</option>
             <option value="Financial Reports">Financial Reports</option>
             <option value="Certification of Board Members">Certification of Board Members</option>
+            <option value="Notices">Notices</option>
         </select>
     </div>
 </div>
 
 <br>
 
-<div>
+<div id="document-list">
     @await Component.InvokeAsync("DocList", new {accessLevel = "public"})
 </div>
 
@@ -35,6 +36,21 @@
     function alertUser() {
         dropdown = document.getElementById("category-dropdown");
         categoryTitle = document.getElementById("category-title")
-        categoryTitle.innerText = dropdown.options[dropdown.selectedIndex].text;
+        selectedCategory = dropdown.options[dropdown.selectedIndex].text
+        categoryTitle.innerText = selectedCategory;
+        
+        if (selectedCategory === "All Documents") {
+            selectedCategory = null;
+        }
+
+        $.ajax({
+            type: 'GET',
+            url: '/Members/Home/GetDocumentList' + 
+            ( selectedCategory !== null ? "?category=" + selectedCategory : ""),
+        
+            success: function(result) {
+                $("#document-list").html(result);
+            }
+        });
     };
 </script>

@@ -82,7 +82,7 @@ Write(await Component.InvokeAsync("DocList", new {category = "Hours"}));
             WriteLiteral("\n</div>\n\n<div>\n    ");
             EndContext();
             BeginContext(342, 154, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1f90a17f72424cc68789b90cb15d7bc6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6ea16155d12946389bce57572405f543", async() => {
                 BeginContext(409, 83, true);
                 WriteLiteral("\n    <input type=\"button\" class=\"btn btn-primary\" value=\"Upload New Document\">\n    ");
                 EndContext();

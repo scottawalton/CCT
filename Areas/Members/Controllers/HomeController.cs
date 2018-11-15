@@ -39,5 +39,10 @@ namespace CCT.Members
         {
             return View();
         }
+
+        public IActionResult GetDocumentList(string category=null, string accessLevel=null)
+        {
+            return ViewComponent("DocList", new {category, accessLevel});
+        }
     }
 }

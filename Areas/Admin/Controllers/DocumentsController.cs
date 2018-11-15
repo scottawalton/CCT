@@ -75,8 +75,6 @@ namespace CCT.Admin
 
                 await UploadDocument(File);
 
-                // TODO: Display success message.
-
                 ViewBag.result = "Upload successful!";
 
             }
@@ -93,7 +91,12 @@ namespace CCT.Admin
             await mContext.SaveChangesAsync();
         }
 
-        // TODO: Implement access levels and ability to edit them
+        public IActionResult DeleteDocument(int Id)
+        {
+            var theFile = mContext.Files.Find(Id);
+            var result = mContext.Files.Remove(theFile);
+            return RedirectToAction("Index");
+        }
 
         #endregion
     }

@@ -140,7 +140,7 @@ using CCT.Models;
             WriteLiteral("\n            </td>\n            <td>\n                <p style=\"display:inline\">\n                    ");
             EndContext();
             BeginContext(969, 97, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7a4af706c8df4471a1ac71b893c79347", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "73398f247afd4eb4ad4544c0e8bcaacc", async() => {
                 BeginContext(1058, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -179,7 +179,7 @@ using CCT.Models;
             WriteLiteral("\n                    <p style=\"display:inline\"> | </p>\n                    ");
             EndContext();
             BeginContext(1141, 97, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7b3bb7bf09ff4c0ab70e7a68bbee2a09", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "69be6251b3e543038712c9508e7b95ff", async() => {
                 BeginContext(1230, 4, true);
                 WriteLiteral("View");
                 EndContext();
@@ -218,7 +218,7 @@ using CCT.Models;
             WriteLiteral("\n                    <p style=\"display:inline\"> | </p>\n                    ");
             EndContext();
             BeginContext(1313, 195, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a8d5bd54024444859100be5a14091e4d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2b697461beaf4310be4b3c6e332b6c73", async() => {
                 BeginContext(1498, 6, true);
                 WriteLiteral("Delete");
                 EndContext();
@@ -266,7 +266,7 @@ using CCT.Models;
             WriteLiteral("</table>\n");
             EndContext();
             BeginContext(1577, 142, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3c438fab6a064315952441abcd99fd98", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "832fac424ca14d518565b24e148c5877", async() => {
                 BeginContext(1644, 71, true);
                 WriteLiteral("\n<input type=\"button\" class=\"btn btn-primary\" value=\"Create New User\">\n");
                 EndContext();

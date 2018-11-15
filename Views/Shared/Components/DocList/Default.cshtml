@@ -7,11 +7,16 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="border" style="background-color: #eee; padding: 5px 30px 5px 30px; height: 50px; line-height: 50px">
                     <a asp-area="" asp-controller="Documents" asp-action="LoadPDF" asp-route-id="@doc.Id" target="_blank">
-                    <span style="color:darkblue">Click here to view @doc.Name</span>
+                    <span style="color:darkblue">@doc.Name</span>
                     </a>
                     <a asp-area="" asp-controller="Documents" asp-action="Download" asp-route-id="@doc.Id">
-                    <span style="display: inline; float: right; color: green; text-decoration:underline">Download</span>
+                    <span style="display: inline; float: right; margin-left: 3vw; color: green; text-decoration:underline">Download</span>
                     </a>
+                    @* TODO: Restrict to only admins
+                    @if (User.IsInRole("admin")) {
+                        <a style="display: inline; float: right;color: red; text-decoration:underline" asp-area="Admin" asp-controller="Documents" asp-action="DeleteDocument" asp-route-id="@doc.Id">Delete</a>
+                    } 
+                    *@
                 </div>
             </div>
         </div>
