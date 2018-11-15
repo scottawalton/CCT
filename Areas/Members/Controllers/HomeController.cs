@@ -35,10 +35,6 @@ namespace CCT.Members
             mContext.Database.EnsureCreated();
             return View();
         }
-        public IActionResult Calendar()
-        {
-            return View();
-        }
 
         public IActionResult GetDocumentList(string category=null, string accessLevel=null)
         {

@@ -37,26 +37,5 @@ namespace CCT.Admin
             mContext.Database.EnsureCreated();
             return View();
         }
-
-        public IActionResult Calendar()
-        {
-            return View();
-        }
-
-        public JsonResult GetEvents()
-        {
-            // Get events from database 
-
-            List<Event> eventList = mContext.Events.ToList();
-
-            return Json(eventList);
-        }
-
-        public async Task NewEvent(Event evnt)
-        {
-
-            await mContext.Events.AddAsync(evnt);
-
-        }
     }
 }
