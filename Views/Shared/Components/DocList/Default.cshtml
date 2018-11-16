@@ -12,11 +12,10 @@
                     <a asp-area="" asp-controller="Documents" asp-action="Download" asp-route-id="@doc.Id">
                     <span style="display: inline; float: right; margin-left: 3vw; color: green; text-decoration:underline">Download</span>
                     </a>
-                    @* TODO: Restrict to only admins
-                    @if (User.IsInRole("admin")) {
+                    @if (User.IsInRole("admin")) 
+                    {
                         <a style="display: inline; float: right;color: red; text-decoration:underline" asp-area="Admin" asp-controller="Documents" asp-action="DeleteDocument" asp-route-id="@doc.Id">Delete</a>
-                    } 
-                    *@
+                    }
                 </div>
             </div>
         </div>

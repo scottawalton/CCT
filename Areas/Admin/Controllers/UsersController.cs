@@ -21,11 +21,20 @@ namespace CCT.Admin
     {
         #region Protected Members
         protected AppDBContext mContext;
-        protected UserManager<User> userManager;
+        protected static UserManager<User> userManager;
+        protected static RoleManager<IdentityRole> roleManager;
 
         public class UserList
         {
             public List<User> userlist {get; set;}
+        }
+        public class userClaim : User
+        {
+            [Required]
+            [DataType(DataType.Password)]
+            public string password {get; set;}
+
+            public bool admin {get; set;}
         }
 
         #endregion
@@ -33,13 +42,16 @@ namespace CCT.Admin
         #region Default Constructor
 
         public UsersController(AppDBContext _context,
-                                UserManager<User> _userManager) 
+                                UserManager<User> _userManager,
+                                RoleManager<IdentityRole> _roleManager) 
         {
+            roleManager = _roleManager;
             userManager = _userManager;
             mContext = _context;
         }
 
         #endregion
+
         public IActionResult Index()
         {
 
@@ -49,7 +61,6 @@ namespace CCT.Admin
 
             return View(users);
         }
-
 
         #region Delete User
 
@@ -109,18 +120,59 @@ namespace CCT.Admin
         #endregion
 
         #region Create User
+        /// <summary>
+        /// Attempts to create a new user and write it to the database using Usermanager
+        /// </summary>
+        /// <returns>Returns an IdentityResult</returns>
+        public static async Task<IdentityResult> NewUser(userClaim User)
+        {
+            User.UserName = User.FirstName + "_" + User.LastName;
 
+            // WIP -- Hashing pass with 265 SHA
+            IdentityResult result = await userManager.CreateAsync(User, User.password);
+
+            ///////////////// REMOVE AFTER DEVELOPMENT COMPLETE ///////////////////////
+            // Also: remove RoleManager in constructor and protected members
+            // as well as the checkbox on the view
+
+            if (User.admin)
+            {
+                IdentityRole admin = new IdentityRole("admin");
+                await roleManager.CreateAsync(admin);
+                await userManager.AddToRoleAsync(User, "admin");
+            }
+            else 
+            {
+                IdentityRole member = new IdentityRole("member");
+                await roleManager.CreateAsync(member);
+                await userManager.AddToRoleAsync(User, "member");
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Returns a View where the user is able to fill out a form to sign up for an account
+        /// </summary>
         public IActionResult CreateUser()
         {
             return View();
         }
 
+        /// <summary>
+        /// Attempts to create a new user and lets us know what happens.
+        /// </summary>
         [HttpPost]
-        public IActionResult CreateUser(PortalController.userClaim User)
+        public IActionResult CreateUser(userClaim User)
         {
 
-            var result = PortalController.CreateUser(User);
+            var result = NewUser(User);
 
+            if (result.IsFaulted) {
+                return View();
+            }
+
+            // Redirects them to the Members area if successful; otherwise, reloads page and shows error
             if (result.Result.Succeeded) {
 
                 return RedirectToAction("Index", "Users");

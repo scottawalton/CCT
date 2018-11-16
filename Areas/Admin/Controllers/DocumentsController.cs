@@ -56,16 +56,17 @@ namespace CCT.Admin
         public async Task<IActionResult> Upload(Document doc)
         {
 
-            PdfFile File = new PdfFile
+            if (ModelState.IsValid &&  doc.file != null && doc.Name != null)
             {
-            Category = doc.Category,
-            OriginalName = doc.file.FileName,
-            Name = doc.Name,
-            AccessLevel = doc.AccessLevel
-            };
 
-            if (ModelState.IsValid)
-            {
+                PdfFile File = new PdfFile
+                {
+                Category = doc.Category,
+                OriginalName = doc.file.FileName,
+                Name = doc.Name,
+                AccessLevel = doc.AccessLevel
+                };
+
 
                 using (var mem = new MemoryStream())
                 {
@@ -95,6 +96,7 @@ namespace CCT.Admin
         {
             var theFile = mContext.Files.Find(Id);
             var result = mContext.Files.Remove(theFile);
+            mContext.SaveChanges();
             return RedirectToAction("Index");
         }
 

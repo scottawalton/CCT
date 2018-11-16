@@ -1,0 +1,9 @@
+﻿@{
+    ViewData["Title"] = "Notices";
+}
+
+<h2>Notices</h2>
+
+<div id="document-list">
+    @await Component.InvokeAsync("DocList", new {category = "Notices", accessLevel = "public"})
+</div>

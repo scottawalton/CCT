@@ -3,10 +3,12 @@
 }
 <h2>Welcome to the Members Area, @Context.User.Identity.Name </h2>
 
-<br>
-<h4>View the admin panel: <a asp-area="Admin" asp-controller="Home" asp-action="Index">Click here</a></h3>
-<h4>View the upcoming events: <a asp-area="Members" asp-controller="Home" asp-action="Calendar">Click here</a></h3>
-<br>
+@if (User.IsInRole("admin")) 
+    {
+        <br>
+        <h4>View the admin panel: <a asp-area="Admin" asp-controller="Home" asp-action="Index">Click here</a></h4>
+        <br>
+    }
 <div class="col-md-offset-1">
     <h3><b>Documents: </b><span style="display: inline" id="category-title"></span></h3>
 
@@ -29,7 +31,7 @@
 <br>
 
 <div id="document-list">
-    @await Component.InvokeAsync("DocList", new {accessLevel = "public"})
+    @await Component.InvokeAsync("DocList", new {accessLevel = "members"})
 </div>
 
 <script>
