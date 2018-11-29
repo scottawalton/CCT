@@ -75,7 +75,7 @@ using Microsoft.AspNetCore.Http.Extensions;
             WriteLiteral("    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-md-8 col-md-offset-2\">\n                <div class=\"border\" style=\"background-color: #eee; padding: 5px 30px 5px 30px; height: 50px; line-height: 50px\">\n                    ");
             EndContext();
             BeginContext(353, 193, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "94c3d15465fb465b83881e49374ee73d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f76c752d19d64243b8822a1280e0bfec", async() => {
                 BeginContext(455, 50, true);
                 WriteLiteral("\n                    <span style=\"color:darkblue\">");
                 EndContext();
@@ -125,7 +125,7 @@ using Microsoft.AspNetCore.Http.Extensions;
             WriteLiteral("\n                    ");
             EndContext();
             BeginContext(567, 251, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b44f11c2a57242f48d630588b47fe913", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "68eba7d32fe748438207e284c7f9985b", async() => {
                 BeginContext(654, 160, true);
                 WriteLiteral("\n                    <span style=\"display: inline; float: right; margin-left: 3vw; color: green; text-decoration:underline\">Download</span>\n                    ");
                 EndContext();
@@ -174,7 +174,7 @@ using Microsoft.AspNetCore.Http.Extensions;
             WriteLiteral("                        ");
             EndContext();
             BeginContext(973, 184, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a6189be8393b45eab487af8ce0f09566", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fa9c172f3552416dbd8859275022de87", async() => {
                 BeginContext(1147, 6, true);
                 WriteLiteral("Delete");
                 EndContext();
