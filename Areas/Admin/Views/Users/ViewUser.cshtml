@@ -4,7 +4,7 @@
 }
 
 
-<h4 style="padding: 5vh 0 5vh 0">Viewing user: @Html.DisplayFor(user => user.UserName)</h4>
+<h4 style="padding: 5vh 0 5vh 0">Viewing user: @Html.DisplayFor(user => user.FirstName) @Html.DisplayFor(user => user.LastName)</h4>
 
 @* Using DisplayFor instead of the normal Model.property because it is throwing an error.
 This is the only working solution after 2 hours of googling. *@
@@ -25,9 +25,11 @@ This is the only working solution after 2 hours of googling. *@
         </tr>
         <tr>
             <th>Apartment Number</th>
-            <td>0</td>
+            <td>@Html.DisplayFor(user => user.ApartmentNumber)</td>
         </tr>
     </table>
     <br>
-    <button class="btn btn-secondary" onclick="window.history.go(-1)">Back</button>
+    <a asp-area="Admin" asp-controller="Users" asp-action="Index">
+    <button type="button" class="btn btn-secondary" style="color: rgb(51, 51, 51)">Back</button>
+    </a>
 </div>

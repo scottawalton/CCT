@@ -4,16 +4,14 @@
 @model CCT.Admin.DocumentsController.Document
 
 <h2>Welcome to the Document Management Area, @Context.User.Identity.Name </h2>
+<div>
+    <a asp-area="Admin" asp-controller="Documents" asp-action="Upload">
+    <input type="button" class="btn btn-primary" value="Upload New Document" style="display: inline">
+    </a>
+    <button type="button" class="btn btn-secondary" style="display: inline; margin-left: 4vw" onclick="window.history.go(-1)">Back</button>
+</div>
 <h4 class="col-md-offset-1"><b>These are all of the documents:</b></h4>
 
 <div>
     @await Component.InvokeAsync("DocList", new {accesLevel = "members"})
-</div>
-
-<div>
-    <a asp-area="Admin" asp-controller="Documents" asp-action="Upload">
-    <input type="button" class="btn btn-primary" value="Upload New Document">
-    </a>
-    <br>
-    <button type="button" class="btn btn-secondary" style="margin-top: 4vh" onclick="window.history.go(-1)">Back</button>
 </div>

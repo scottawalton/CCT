@@ -18,13 +18,32 @@
             <td style="padding-right: 25px"><input asp-for="FirstName" style="width: 25vw"></td>
             <td><input asp-for="LastName" style="width: 25vw"></td>
         </tr>
+        <tr>
+            <th>
+                <br>
+                <p style="font-weight: bold; margin-bottom: -0.2vh">Email</p>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <input asp-for="Email">
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <br>
+                <p style="font-weight: bold; margin-bottom: -0.2vh">Apartment Number</p>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <input asp-for="ApartmentNumber">
+            </td>
+        </tr>
     </table>
-    <br>
-    <p style="padding-top: 3vh; margin-bottom: -0.2vh; font-weight: bold">Email</p>
-    <input asp-for="Email">
-    <br>
+
     <input type="submit" style="margin-top: 4vh" value="Save" class="btn btn-primary">
-    <button type="button" class="btn btn-secondary" style="margin-top: 4vh; margin-left: 4vw" onclick="window.history.go(-1)">Cancel</button>
+    <button class="btn btn-secondary" style="margin-top: 4vh; margin-left: 4vw" asp-action="Index" asp-area="Admin" asp-controller="Users">Cancel</button>
 
     </form>
 </div>

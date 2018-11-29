@@ -18,7 +18,6 @@ namespace CCT.Members
     {
         #region Protected Members
         protected AppDBContext mContext;
-
         #endregion
 
         #region Default Constructor

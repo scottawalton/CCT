@@ -111,6 +111,7 @@ namespace CCT.Admin
                 user.Email = revisedUser.Email;
                 user.FirstName = revisedUser.FirstName;
                 user.LastName = revisedUser.LastName;
+                user.ApartmentNumber = revisedUser.ApartmentNumber;
 
                 await mContext.SaveChangesAsync();
             }
@@ -126,12 +127,13 @@ namespace CCT.Admin
         /// <returns>Returns an IdentityResult</returns>
         public static async Task<IdentityResult> NewUser(userClaim User)
         {
-            User.UserName = User.FirstName + "_" + User.LastName;
+
+            User.UserName = User.ApartmentNumber.ToString();
 
             // WIP -- Hashing pass with 265 SHA
             IdentityResult result = await userManager.CreateAsync(User, User.password);
 
-            ///////////////// REMOVE AFTER DEVELOPMENT COMPLETE ///////////////////////
+            // TODO
             // Also: remove RoleManager in constructor and protected members
             // as well as the checkbox on the view
 
@@ -149,6 +151,7 @@ namespace CCT.Admin
             }
 
             return result;
+
         }
 
         /// <summary>
@@ -163,24 +166,24 @@ namespace CCT.Admin
         /// Attempts to create a new user and lets us know what happens.
         /// </summary>
         [HttpPost]
-        public IActionResult CreateUser(userClaim User)
+        public async Task<IActionResult> CreateUser(userClaim User)
         {
 
-            var result = NewUser(User);
+            if (ModelState.IsValid && User.FirstName!=null) {
+                var result = await NewUser(User);
 
-            if (result.IsFaulted) {
-                return View();
+                    // Redirects them to the Members area if successful; otherwise, reloads page and shows error
+                if (result.Succeeded) {
+
+                    return RedirectToAction("Index", "Users");
+                }  
+                else {
+                    ViewBag.errors = result.Errors;
+                    return View();
+                }
             }
-
-            // Redirects them to the Members area if successful; otherwise, reloads page and shows error
-            if (result.Result.Succeeded) {
-
-                return RedirectToAction("Index", "Users");
-            }  
-            else {
-                ViewBag.errors = result.Result.Errors;
-                return View();
-            }
+            ViewBag.errors = "Please ensure all fields are correctly filled.";
+            return View();
         }
         #endregion
     }

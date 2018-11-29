@@ -55,31 +55,46 @@ namespace CCT.Admin
         [HttpPost]
         public async Task<IActionResult> Upload(Document doc)
         {
-
+            
             if (ModelState.IsValid &&  doc.file != null && doc.Name != null)
             {
 
-                PdfFile File = new PdfFile
+                bool isPDF = doc.file.FileName.Contains(".pdf", StringComparison.OrdinalIgnoreCase);
+
+                if (isPDF) 
                 {
-                Category = doc.Category,
-                OriginalName = doc.file.FileName,
-                Name = doc.Name,
-                AccessLevel = doc.AccessLevel
-                };
+                    PdfFile File = new PdfFile
+                    {
+                    Category = doc.Category,
+                    OriginalName = doc.file.FileName,
+                    Name = doc.Name,
+                    AccessLevel = doc.AccessLevel
+                    };
 
 
-                using (var mem = new MemoryStream())
-                {
-                    await doc.file.CopyToAsync(mem);
-                    File.PDF = mem.ToArray();
+                    using (var mem = new MemoryStream())
+                    {
+                        await doc.file.CopyToAsync(mem);
+                        File.PDF = mem.ToArray();
+                    }
+
+                    await UploadDocument(File);
+
+                    ViewBag.result = "Upload successful!";
+                    ViewBag.errors = null;
+
                 }
-
-                await UploadDocument(File);
-
-                ViewBag.result = "Upload successful!";
-
+                else
+                {
+                    ViewBag.errors = "Something went wrong. Is the file a PDF?";
+                    return View();
+                }
             }
-
+            else
+            {
+                ViewBag.errors = "Something went wrong. Are all fields filled?";
+                return View();
+            }
             return View();
         }
 

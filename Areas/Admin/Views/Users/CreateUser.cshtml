@@ -13,26 +13,44 @@
             <th>First Name</th>
             <th>Last Name</th>
         </tr>
+        <tr class="form-group">
+            <td style="padding-right: 25px"><input class="form-control" asp-for="FirstName" style="width: 25vw" required></td>
+            <td><input class="form-control" asp-for="LastName" style="width: 25vw" required></td>
+        </tr>
         <tr>
-            <td style="padding-right: 25px"><input asp-for="FirstName" style="width: 25vw"></td>
-            <td><input asp-for="LastName" style="width: 25vw"></td>
+            <th style="padding-top: 2vh">Email:</th>
+        </tr>
+        <tr>
+            <td><input asp-for="Email" required type="email" class="form-control"></td>
+        </tr>
+        <tr>
+            <th style="padding-top: 2vh">Apartment Number:</th>
+        </tr>
+        <tr>
+            <td><input class="form-control" asp-for="ApartmentNumber" required></td>
+        </tr>
+        <tr>
+            <th style="padding-top: 2vh">Password:</th>
+        </tr>
+        <tr>
+            <td><input asp-for="password" class="form-control" type="password" required></td>
         </tr>
     </table>
-    <p style="padding-top: 5px">Email: </p>
-    <input asp-for="Email">
-    <br>
-    <p style="padding-top: 5px">Password: </p>
-    <input asp-for="password" type="password">
-    @*TODO: Implement red text that appears when requirements are not met*@
-    <br>
 
-    <p>@ViewBag.errors</p>
-
+    <br>
     <input class="form-check-input" id="admin" type="checkbox" asp-for="admin">
     <label class="form-check-label" for="admin">Make the User an Admin?</label>
     <br>
 
-    <input type="submit" class="btn btn-primary" style="margin-top: 20px" value="Submit">
-    <button type="button" class="btn btn-secondary" style="margin-top: 4vh; margin-left: 4vw" onclick="window.history.go(-1)">Cancel</button>
+
+    <p style="color: red; ">@ViewBag.errors</p>
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" style="margin-top: 20px" value="Submit" style="display: inline">
+        <a asp-area="Admin" asp-controller="Users" asp-action="Index" style="color: rgb(51, 51, 51); display: inline">
+            <button type="button" class="btn btn-secondary">Cancel</button>
+        </a>
+    </div>
     </form>
+
 </div>

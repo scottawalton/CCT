@@ -8,7 +8,7 @@
 <h2>Welcome to the User Management Area, @Context.User.Identity.Name </h2>
 
 
-<p>A table of users will go here and they will have to options to Edit or Delete, as well as Add a new User</p>
+<p>You may add, edit, view, and delete Users from this page.</p>
 
 
 <table class="table table-striped">
@@ -21,6 +21,9 @@
         </td>
         <td style="font-weight: bold">
             Email
+        </td>
+        <td style="font-weight: bold">
+            Apartment Number
         </td>
         <td style="font-weight: bold">
             Actions
@@ -40,6 +43,9 @@
                 @user.Email
             </td>
             <td>
+                @user.ApartmentNumber
+            </td>
+            <td>
                 <p style="display:inline">
                     <a asp-controller="Users" asp-area="Admin" asp-action="EditUser" asp-route-id="@user.Id">Edit</a>
                     <p style="display:inline"> | </p>
@@ -55,4 +61,6 @@
 <input type="button" class="btn btn-primary" value="Create New User">
 </a>
 <br><br>
-<button class="btn btn-secondary" onclick="window.history.go(-1)">Back</button>
+<a asp-area="Admin" asp-controller="Home" asp-action="Index">
+<button type="button" class="btn btn-secondary" style="color: rgb(51, 51, 51)">Back</button>
+</a>
