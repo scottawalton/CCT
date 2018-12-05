@@ -43,7 +43,7 @@ namespace CCT.Admin
 
         public UsersController(AppDBContext _context,
                                 UserManager<User> _userManager,
-                                RoleManager<IdentityRole> _roleManager) 
+                                RoleManager<IdentityRole> _roleManager)
         {
             roleManager = _roleManager;
             userManager = _userManager;
@@ -143,7 +143,7 @@ namespace CCT.Admin
                 await roleManager.CreateAsync(admin);
                 await userManager.AddToRoleAsync(User, "admin");
             }
-            else 
+            else
             {
                 IdentityRole member = new IdentityRole("member");
                 await roleManager.CreateAsync(member);
@@ -170,15 +170,21 @@ namespace CCT.Admin
         {
 
             if (ModelState.IsValid && User.FirstName!=null) {
-                var result = await NewUser(User);
+                try {
+                    var result = await NewUser(User);
 
-                    // Redirects them to the Members area if successful; otherwise, reloads page and shows error
-                if (result.Succeeded) {
+                        // Redirects them to the Members area if successful; otherwise, reloads page and shows error
+                    if (result.Succeeded) {
 
-                    return RedirectToAction("Index", "Users");
-                }  
-                else {
-                    ViewBag.errors = result.Errors;
+                        return RedirectToAction("Index", "Users");
+                    }
+                    else {
+                        ViewBag.errors = result.Errors.First().Description;
+                        return View();
+                }
+                }
+                catch (System.InvalidOperationException) {
+                    ViewBag.errors = "Your password did not meet the requirements. Try again. \n";
                     return View();
                 }
             }

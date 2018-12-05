@@ -73,7 +73,7 @@ using CCT.Models;
             WriteLiteral(" </h2>\n\n<p>You may do any of the following:</p>\n\n<p>");
             EndContext();
             BeginContext(170, 86, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf2ce111ab4141c594426c032006023c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e06e1e219f6a4b4aac2b8a392b7e694f", async() => {
                 BeginContext(236, 16, true);
                 WriteLiteral("Manage Documents");
                 EndContext();
@@ -99,7 +99,7 @@ using CCT.Models;
             WriteLiteral("</p>\n<p>");
             EndContext();
             BeginContext(264, 78, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6438a431e34745d59476a7980a99b1ab", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fd05f1a15e374c5f96dc7e234c97ce35", async() => {
                 BeginContext(326, 12, true);
                 WriteLiteral("Manage Users");
                 EndContext();
